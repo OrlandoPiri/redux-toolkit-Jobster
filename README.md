@@ -545,12 +545,14 @@ npm install @reduxjs/toolkit react-redux
 export const registerUser = createAsyncThunk(
   'user/registerUser',
   async (user, thunkAPI) => {
-    console.log(`Register User : ${user}`)
+    console.log(`Register User : ${user}`);
+  }
 );
 export const loginUser = createAsyncThunk(
   'user/loginUser',
   async (user, thunkAPI) => {
-    console.log(`Login User : ${user}`)
+    console.log(`Login User : ${user}`);
+  }
 );
 ```
 
@@ -913,7 +915,6 @@ export default Navbar
 Navbar.js;
 
 ```js
-
 import Wrapper from '../assets/wrappers/Navbar';
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa';
 import Logo from './Logo';
@@ -922,17 +923,17 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
-
-
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
-
-
 
   return (
     <Wrapper>
       <div className='nav-center'>
-        <button type='button' className='toggle-btn' onClick={()=> console.log('toggle sidebar')}>
+        <button
+          type='button'
+          className='toggle-btn'
+          onClick={() => console.log('toggle sidebar')}
+        >
           <FaAlignLeft />
         </button>
         <div>
@@ -943,18 +944,18 @@ const Navbar = () => {
           <button
             type='button'
             className='btn'
-            onClick={() => console.log('toggle logout dropdown'))}
+            onClick={() => console.log('toggle logout dropdown')}
           >
             <FaUserCircle />
             {user?.name}
             <FaCaretDown />
           </button>
-          <div className= 'dropdown show-dropdown'>
+          <div className='dropdown show-dropdown'>
             <button
               type='button'
               className='dropdown-btn'
               onClick={() => {
-               console.log('logout user')
+                console.log('logout user');
               }}
             >
               logout
@@ -967,7 +968,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 ```
 
 #### 36) Toggle Sidebar
@@ -2646,7 +2646,7 @@ export const showStats = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const resp = await customFetch.get('/jobs/stats');
-      console.log(resp.data));
+      console.log(resp.data);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
@@ -3167,7 +3167,7 @@ export const getAllJobs = createAsyncThunk(
       const resp = await customFetch.get(url);
       return resp.data;
     }
-
+})
 ```
 
 JobsContainer.js
@@ -3200,7 +3200,7 @@ reducers:{
   handleChange: (state, { payload: { name, value } }) => {
       state.page = 1;
       state[name] = value;
-    },
+ } },
 ```
 
 SearchContainer.js

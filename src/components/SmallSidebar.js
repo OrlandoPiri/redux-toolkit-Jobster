@@ -19,7 +19,7 @@ const SmallSidebar = () => {
         }
       >
         <div className='content'>
-          <button className='close btn' onClick={toggle}>
+          <button className='close-btn' onClick={toggle}>
             <FaTimes />
           </button>
           <header>
